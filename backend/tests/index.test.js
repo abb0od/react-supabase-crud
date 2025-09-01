@@ -1,7 +1,7 @@
 const { supabase } = require("./supabaseClient.test"); // use require instead of import
 
 const request = require("supertest");
-const app = require("./index");
+const app = require("../index");
 
 
 let TOKEN;

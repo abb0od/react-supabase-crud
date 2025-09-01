@@ -1,5 +1,5 @@
 const express = require("express");
-const supabase = require("./supabaseClient");
+const supabase = require("../config/supabaseClient");
 
 const router = express.Router();
 
@@ -37,7 +37,26 @@ router.get("/", authenticate, async (req, res) => {
 });
 
 // POST /todos
-
+/**
+ * @swagger
+ * /todos:
+ *   post:
+ *     summary: Create a new todo
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: The created todo
+ */
 router.post("/", authenticate, async (req, res) => {
   const { title } = req.body;
   const { data, error } = await supabase.from("todos").insert([{ title, completed: false }]);
@@ -59,26 +78,7 @@ router.put("/:id", authenticate, async (req, res) => {
 });
 
 // DELETE /todos/:id
-/**
- * @swagger
- * /todos:
- *   post:
- *     summary: Create a new todo
- *     security:
- *       - bearerAuth: []
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               title:
- *                 type: string
- *     responses:
- *       200:
- *         description: The created todo
- */
+
 router.delete("/:id", authenticate, async (req, res) => {
   const { id } = req.params;
   const { data, error } = await supabase.from("todos").delete().eq("id", id);

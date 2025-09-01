@@ -3,8 +3,8 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
-const todosRoutes = require("./todosRoutes");
-const setupSwagger = require("./swagger");
+const todosRoutes = require("./routes/todosRoutes");
+const setupSwagger = require("./docs/swagger");
 
 const app = express();
 
