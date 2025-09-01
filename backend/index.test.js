@@ -1,4 +1,4 @@
-const { supabase } = require("./supabaseClient"); // use require instead of import
+const { supabase } = require("./supabaseClient.test"); // use require instead of import
 
 const request = require("supertest");
 const app = require("./index");
