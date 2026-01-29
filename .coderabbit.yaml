@@ -3,9 +3,9 @@ reviews:
   auto_review:
     enabled: true
     path_filters:
-      - "src/**"
+      - "**/src/**"
   path_instructions:
-    - path: "src/**/*"
+    - path: "**/src/**/*"
       instructions: |
         - Enforce strict camelCase for variables and PascalCase for React components.
         - Flag any unused functions, exports, or variables that aren't caught by the linter.
