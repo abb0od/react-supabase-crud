@@ -1,0 +1,13 @@
+# .coderabbit.yaml
+reviews:
+  auto_review:
+    enabled: true
+    path_filters:
+      - "src/**"
+  path_instructions:
+    - path: "src/**/*"
+      instructions: |
+        - Enforce strict camelCase for variables and PascalCase for React components.
+        - Flag any unused functions, exports, or variables that aren't caught by the linter.
+        - Suggest refactors for functions with a cyclomatic complexity > 5.
+        - Check for 'semantic' naming issues (e.g., a boolean that doesn't start with 'is', 'has', or 'should').
